@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing Site CSS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Viga&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <img class="navIcons" src="imgs/logo.png">
+        <ul>
+            <li id="navHome"><a href="index.html">Home</a></li>
+            <li id="navCategories"><a href="31205715.html">Categories</a></li>
+            <li id="navCommunity"><a href="">Community</a></li>
+        </ul>
+        <a href="" id="searchButton">
+            <img class="navIcons" src="imgs/search.png" alt="">
+        </a>
+        <button id="navMenu" class="menuButton"><img class="navIcons" src="imgs/menu.png" alt=""></button>
+    </nav>
+    <hr>
+    <div class="main">
+        <div class="parallaxDiv">
+            <div id="parallaxDivDino">
+            </div>
+        </div>
+        <p class="initialMessages"> Download Models  <br> For Your <br> Future Projects</p>
+        <button class="initialBts"> <span>All - </span> Categories</button>
+    </div>
+    <hr>
+    <div class="popularDiv">
+        <h3>
+            Popular
+        </h3>
+        <div class="Container3D" id="containerForPopular">
+
+        </div>
+    </div>
+    <script src="https://unpkg.com/three@0.146.0/build/three.min.js"></script>
+    <script src="https://unpkg.com/three@0.146.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://unpkg.com/three@0.146.0/examples/js/loaders/OBJLoader.js"></script>
+    <script>
+        let objsLi = ["objs\\base2.obj","objs\\base1.obj","objs\\base.obj",
+        "objs\\base2 copy.obj","objs\\base2.obj","objs\\base2.obj","objs\\base2.obj",
+        "objs\\base2.obj","objs\\base2.obj"];
+
+        for (let index = 0; index < objsLi.length; index++) {
+            
+            let container = document.getElementById("containerForPopular");
+            let div = document.createElement("div");
+
+            div.className = "Viewer3D";
+
+            let scene = new THREE.Scene();
+            let camera = new THREE.PerspectiveCamera(70,16/9,1,400);
+            let objLoader = new THREE.OBJLoader();
+            let ambLight = new THREE.AmbientLight(0xfff,0.8);
+            let dirLight = new THREE.DirectionalLight(0xfff,0.8);
+            let renderer = new THREE.WebGLRenderer({
+                antialias: true,
+                alpha: true
+            });
+
+            camera.position.set(0,-0.4,5);
+            renderer.setClearColor(0x000,0);
+
+            let obj = null;
+            scene.add(dirLight);
+            scene.add(ambLight);
+
+            objLoader.load(
+                objsLi[index],
+                function (object)
+                {
+                    obj = object;
+                    obj.position.set(-0.9,-1.2,3);
+                    obj.scale.set(1,1,1);
+                    obj.rotation.set(0,0,0);    
+                    scene.add(obj);
+                    renderer.render(scene,camera);
+                },
+                undefined,
+                function (error)
+                {
+                    console.error(error);
+                },
+            );
+
+            div.appendChild(renderer.domElement);
+            container.appendChild(div);
+        }
+
+    
+    </script>
+
+</body>
+</html>
