@@ -126,7 +126,7 @@ nav ul li a{
 .Container3D {
     display: grid;
     grid-template-columns: repeat(2 , 1fr);
-    gap: 1.5em;
+    gap: 3em;
     transform: scale(1.5);
     margin: 0;
     max-width: 150px;
