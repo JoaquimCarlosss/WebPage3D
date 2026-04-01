@@ -30,7 +30,7 @@ nav ul{
     max-width: 200px;
 }
 nav ul li{
-    margin-right: 1em;
+    margin-left: 1em;
 }
 nav{
     max-width: 100%;
@@ -79,7 +79,7 @@ nav ul li a{
 .initialBts{
     font-size: 15px;
     margin-top: 1.4em;
-    width: 9em;
+    width: 11em;
     background-image: linear-gradient(to right,
     rgb(82, 234, 255), rgb(110, 11, 252));
     border: hidden;
