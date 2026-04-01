@@ -1,0 +1,262 @@
+*{
+    margin: 0;
+    list-style: none;
+    transition: 0.3s;
+    color: white;
+    
+}
+a{
+    text-decoration: none;
+    list-style: none;
+}
+hr{
+    height: 0.08px;
+    background-color: rgb(68, 66, 66);
+    border: none;
+}
+body{
+    background-image: linear-gradient(to bottom,rgb(34, 34, 45),black,rgb(34, 34, 45));
+    background-size: cover;
+    min-height: 150vh;
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-weight: 600;
+}
+nav ul{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 3px;
+}
+nav ul li{
+    margin-right: 1.6em;
+}
+nav{
+    padding: 10px;
+    background-image: radial-gradient(circle, rgb(209, 209, 255,0.3),rgb(68, 95, 95,0.3));
+    /*Adicionado*/
+    border: 0.5px solid rgb(105, 113, 114);
+}
+nav ul li a{
+    text-decoration: none;
+    font-size: 16px;
+}
+.navIcons{
+    transform: scale(1.77);
+    max-width: 14px;
+    max-height: auto;
+    margin-left: 1.1em;
+} 
+.menuButton{
+    background-color: transparent;
+    border: 0px transparent;
+} 
+
+/*Adicionado*/
+
+.main{
+    margin: 3em;
+    margin-top: 6em;
+    min-height: 55vh;
+}
+.initialMessages{
+    font-size: 250%;
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+.initialBts{
+    font-size: 17px;
+    margin-top: 1.4em;
+    width: 13em;
+    background-image: linear-gradient(to right,
+    rgb(82, 234, 255), rgb(110, 11, 252));
+    border: hidden;
+    border-radius: 10px;
+    display: inline-flex;
+    padding: 0.7em;
+    font-weight: 600;
+    justify-content: center;
+}
+.initialBts:hover{
+    transform: scale(1.1);
+}
+.initialBts span{
+    font-size: 17px;
+    color: black;
+}
+.popularDiv{
+    margin: 2em;
+    margin-top: 1em;
+    min-height: 90vh;
+}
+.popularDiv h3{
+    margin-bottom: 1px;
+}
+#containerForPopular h2{
+    margin-bottom: 0.5em;
+}
+.parallaxDiv div {
+    margin: 0;
+    width: 43%;
+    height: 51vh;
+    position: absolute;
+    left: 53%;
+    top: 23%;
+    background-position: left;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.charactersDiv{
+    margin: 3em;
+    margin-top: 10em;
+}
+.charactersDiv h3{
+    margin-bottom: 1em;
+}
+#initialMessageCategorie:hover{
+    transform: scale(1.01);
+}
+.bigModel .Viewer3D{
+    padding: 100px;
+    min-width: 100%;
+    height: auto;
+    visibility: hidden;
+}
+.Container3D {
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
+    gap: 1.5em;
+    transform: scale(0.8);
+    margin: 0;
+    max-width: 150px;
+    height: auto;
+}
+.Viewer3D{
+    background-image: radial-gradient(circle,
+    rgb(207, 207, 255), rgb(1, 30, 31,100)); 
+    margin-bottom: 10px;
+    height: 28vh;
+    border-radius: 10px;
+    max-width: 9.5em;
+    padding: 10px;
+}   
+.Viewer3D:hover{
+    transform: scale(1.1);
+}
+#containerForPopular h2{
+    margin-bottom: 0.5em;
+}
+.parallaxDiv div {
+    margin: 0;
+    width: 43%;
+    height: 51vh;
+    position: absolute;
+    left: 53%;
+    top: 23%;
+    background-position: left;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.bigModel .Viewer3D{
+    padding: 100px;
+    min-width: 100%;
+    height: auto;
+    visibility: hidden;
+}
+.presentationCont{
+    margin-bottom: 4em;
+}
+
+
+
+@media(min-width: 900px)
+{
+    .parallaxDiv div:hover{
+        transform: scale(1.1);
+        background-image: radial-gradient(circle, rgb(231, 15, 15));
+    }
+    #parallaxDivDino{
+        background-size: 75%;
+        background-image: url("imgs/homePageImage.png");
+        background-blend-mode: color-dodge;
+    }
+    #parallaxDivCategories{
+        background-image: url("imgs/categoriesImg.png");
+    }
+    nav ul{
+        min-width: 700px;
+    }
+    .initialMessages{
+        font-size: 50.1px;
+    }
+    /*Adicionado*/
+    nav:hover{
+        transform: scale(1.005);
+        box-shadow: 1px 0px 10px rgb(90, 94, 95);
+    }
+    .presentationCont {
+        display: flex;
+    }
+    .bigModel .Viewer3D{
+        margin-left: 3em;
+        transform: scale(1.1);
+        visibility: visible;
+    }
+    .Container3D {
+        display: grid;
+        grid-template-columns: repeat(5 , 1fr);
+        gap: 1.1em;
+        transform: scale(0.9);
+        margin: 0;
+        max-width: 150px;
+        height: auto;
+    }
+}
+@media(min-width: 600px)
+{
+    *{
+        font-size: 20px;
+    }
+    nav{
+        padding: 10px;
+        margin: 20px;
+        margin-top: 1em;
+        border-radius: 10px;
+        background-image: radial-gradient(circle, rgb(209, 209, 255,0.3),rgb(68, 95, 95,0.3));
+    }
+    nav ul li{
+        margin-right: 1.8em;
+    }
+}
+@media(max-width: 600px){
+    nav ul{
+        max-width: 270px;
+    }
+    /*Adicionados*/
+    #navCommunity{
+        visibility: hidden;
+    }
+    #searchButton{
+        visibility: hidden;
+    }
+}
+@media(max-width: 500px)
+{
+    *{
+        margin: 0;
+    }
+    nav ul{
+        display: inline-flex;
+        min-width: 0;
+    }
+    a{
+        font-size: 12px;
+    }
+    .Container3D{
+        transform: scale(0.6);
+        margin: 0;
+        max-width: 200px;
+        height: auto;
+    }
+}
