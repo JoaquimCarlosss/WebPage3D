@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories</title>
+    <!--Links for Styles and Fonts-->
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Viga&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <img class="navIcons" src="datas/icons/imgs/logo.png">
+        <ul>
+            <!--main Page Link-->
+            <li id="navHome"><a href="index.html">Home</a></li>
+            <!--categorie Page Link-->
+            <li id="navCategories"><a href="31205715.html">Categories</a></li>
+            <!--community Page Link-->
+            <li id="navCommunity"><a href="">Community</a></li>
+        </ul>
+        <!-- Search Page Link to open other page to search 3d objects-->
+        <a href="" id="searchButton">
+            <img class="navIcons" src="datas/icons/imgs/search.png" alt="">
+        </a>
+        <!--Menu Button for acess of others options-->
+        <button id="navMenu" class="menuButton"><img class="navIcons" src="datas/icons/imgs/menu.png" alt=""></button>
+    </nav>
+
+    <!--Presentation Area for link to an other page-->
+    <div class="Presentation">
+        <!--Message-->
+        <h2 >
+            Enjoy The diversity <br>
+            of our Models in <br>
+        </h2>
+        <h2 style="background:none; color: #38b6ff;">
+            Categories
+        </h2>
+        <!--Popular Link Div-->
+        <div class="PopularLinkButton">
+            <!--Popular Link-->
+            <a href="">
+                All - Popular
+            </a>
+        </div>
+    </div>
+    <main class="CategoriesMain">
+        <div class="CategoriesGeneralDiv">
+            <div class="MessageFromCategories">
+                <h2>
+                    Characters:
+                </h2>
+                <div class="Big3DModel" id="charecterBig3DModel">
+
+                </div>
+            </div>
+            <div class="ContainerFor3D" id="containerForCharacters">
+
+            </div>
+        </div>
+    </main>
+</body>
+
+
+<a href=""></a>
+
+<script src="https://unpkg.com/three@0.146.0/build/three.min.js"></script>
+    <script src="https://unpkg.com/three@0.146.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://unpkg.com/three@0.146.0/examples/js/loaders/OBJLoader.js"></script>
+    <script>
+        let objsLi = ["datas/objs/base2.obj","datas/objs/base1.obj","datas/objs/base.obj",
+        "datas/objs/base2.obj","datas/objs/base2.obj","datas/objs/base2.obj","datas/objs/base2.obj",
+        "datas/objs/base2.obj","datas/objs/base2.obj"];
+
+        for (let index = 0; index < objsLi.length; index++) {
+            
+            let container = document.getElementById("containerForCharacters");
+            let div = document.createElement("div");
+
+            div.className = "QuadViewer3D";
+
+            let scene = new THREE.Scene();
+            let camera = new THREE.PerspectiveCamera(70,16/9,1,400);
+            let objLoader = new THREE.OBJLoader();
+            let ambLight = new THREE.AmbientLight(0xfff,0.8);
+            let dirLight = new THREE.DirectionalLight(0xfff,0.8);
+            let renderer = new THREE.WebGLRenderer({
+                antialias: true,
+                alpha: true
+            });
+
+            camera.position.set(0,-0.4,5);
+            renderer.setClearColor(0x000,0);
+
+            let obj = null;
+            scene.add(dirLight);
+            scene.add(ambLight);
+
+            objLoader.load(
+                objsLi[index],
+                function (object)
+                {
+                    obj = object;
+                    obj.position.set(-1.9,-0.1,2.3);
+                    obj.scale.set(0.7,0.7,0.7);
+                    obj.rotation.set(0,0,0);    
+                    scene.add(obj);
+                    renderer.render(scene,camera);
+                },
+                undefined,
+                function (error)
+                {
+                    console.error(error);
+                },
+            );
+
+            div.appendChild(renderer.domElement);
+            container.appendChild(div);
+        }
+
+    
+    </script>
+
+
+</html>

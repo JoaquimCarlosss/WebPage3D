@@ -1,0 +1,121 @@
+/*
+    Mobile First Structure
+*/ 
+*{
+    margin: 0;
+    list-style: none;
+    transition: 0.3s;
+    color: white;
+    font-size: 13px;
+}
+
+
+/*################### Main Body Style For Backg Size and Font #######################*/
+body{
+    background-image: linear-gradient(to bottom,rgb(34, 34, 45),black,rgb(34, 34, 45));
+    background-size: cover;
+    min-height: 150vh;
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-weight: 500;
+}
+
+/*General Link Style For text and list*/
+a{
+    text-decoration: none;
+    list-style: none;
+}
+
+
+/*############### Main NavBar Style For Backg and Space ############################*/
+nav{
+    padding: 9px;
+    background-image: radial-gradient(circle, rgb(209, 209, 255,0.3),rgb(68, 95, 95,0.3));
+    
+}
+
+/*Nav ul Style For display, align and space*/
+nav ul{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 3px;
+}
+
+/*Nav ul li Style For Space*/
+nav ul li{
+    margin-right: 1em;
+}
+
+/*Nav ul li a Style For Text and Font*/
+nav ul li a{
+    text-decoration: none;
+}
+
+/*NavIcon Style For self transformation Size and Space*/
+.navIcons{
+    transform: scale(1.77);
+    max-width: 14px;
+    max-height: auto;
+    margin: 0 0 0 1em;
+} 
+
+/*Menu Button Style For Transform, Backg and Border*/
+.menuButton{
+    transform: scale(0.8);
+    background-color: transparent;
+    border: 0px transparent;
+    margin: 0;
+} 
+ /*Search Button Style For display*/
+#searchButton
+{
+    display: none;
+}
+
+/*###################### Presentation ################*/
+.Presentation{
+    text-align: left;
+    margin: 4em 0 0 2.5em;
+}   
+/*Presentation h2 Style for font*/
+.Presentation h2{
+    font-size: 2.3em;
+}
+/*Popular Link Button style for space, width, text, border, Backg*/
+.PopularLinkButton{
+    padding: 5px;
+    max-width: 120px;
+    margin: 1em 0 0 0;
+    text-align: center;
+    border-radius: 10px;
+    background-image:  linear-gradient(to right,#41606b,#684c8f);
+}
+/*Popular Link Button a style for font*/
+.PopularLinkButton a{
+    font-size: 1.1em;
+}
+
+/*####################### Main ############################*/
+.CategoriesMain{
+    margin: 3em 0 0 2em;
+}
+.ContainerFor3D{
+    display: grid; /*To Make a Grid of 3D Viewers*/
+    grid-template-columns: repeat(2 , 1fr);/*Seting Number of Columns in Grid*/
+    gap: 1em; /*Space Between 3D Viewers*/
+    transform: scale(0.96); 
+    max-width: 150px; /*Max Width for Mobile Devices*/
+    height: auto; /*Auto Height*/
+}
+.QuadViewer3D{
+    background-image: radial-gradient(circle,
+    rgb(207, 207, 255), rgb(1, 30, 31,100)); 
+    margin-bottom: 10px;
+    height: 15vh;
+    border-radius: 10px;
+    max-width: 9.5em;
+    padding: 10px;
+}   
+.QuadViewer3D:hover{
+    transform: scale(1);
+}
