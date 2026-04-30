@@ -106,18 +106,19 @@ nav ul li a{
     display: grid; /*To Make a Grid of 3D Viewers*/
     grid-template-columns: repeat(2 , 1fr); /*Seting Number of Columns in Grid*/
     gap: 1em; /*Space Between 3D Viewers*/
+    row-gap: 0.0000024em;
     transform: scale(0.96); 
     max-width: 2600px; /*Max Width for Mobile Devices*/
     height: auto; /*Auto Height*/
 }
 /*Viewer 3D For 3D Models*/
 .QuadViewer3D{
-    margin: 0 0 0.1em 0;
+    margin: 0 0 0 0;
     padding: 10px;
-    height: 15vh;
     max-width: 13em;
-    min-height: 26vh;
+    min-height: 30vh;
     border-radius: 10px;
+    transform: scale(1,0.89);
     background-image: radial-gradient(circle,
     rgba(207, 207, 255, 0.575), rgba(1, 30, 31, 0.555)); 
 }   
@@ -126,6 +127,8 @@ nav ul li a{
 .UIConatainer{
     padding: 5px;
     z-index: 100;
+    justify-content: center;
+    align-items: center;
 }
 /*UI Container Button Style for backg, border, space, transf, border*/
 .UIConatainer button{
@@ -140,10 +143,19 @@ nav ul li a{
     font-size: 11px;
     margin-right: 3em;
 }
+.InfoButton{
+
+    transform: scale(0.8);
+    border: none;
+    margin: 0;
+}
+.InfoButton img{
+    max-width: 15px;
+    max-height: auto;
+}
 /*Download Button style for transform, backg, border, space*/
 .DownloadButton{
     transform: scale(0.8);
-    background-color: transparent;
     border: none;
     margin: 0;
 }
@@ -175,12 +187,7 @@ nav ul li a{
 }
 /*#################### Biggest Devices ######################*/
 /*Commun Size Of Tablets Style For .ContainerFor3D elements*/
-@media(max-height: 1080px)
-{
-    .QuadViewer3D{
-        min-height: 14em;
-    }
-}
+
 @media(min-width: 500px)
 {
     /*Mofication for container for 3d in number of grids and gap size*/
