@@ -86,18 +86,24 @@
             
             let container = document.getElementById("containerForCharacters");
             let uiConatainer = document.createElement("div");
+            let upUIContainer = document.createElement("div");
             let div = document.createElement("div");
             let categoryButton = document.createElement("button");
             let downloadButton = document.createElement("button");
+            let infoButton = document.createElement("button");
             let downloadImg = document.createElement("img");
+            let infoIcon = document.createElement("img");
             let defaultWidth = 400;
 
             div.className = "QuadViewer3D";
             uiConatainer.className = "UIConatainer";
+            upUIContainer.className = "UIConatainer";
             categoryButton.className = "CategoryButton";
             downloadButton.className = "DownloadButton";
+            infoButton.className = "InfoButton";
             categoryButton.innerText = "Category";
             downloadImg.src = "datas/icons/imgs/download.png";
+            infoIcon.src = "datas/icons/imgs/infoIcon.png";
 
             let scene = new THREE.Scene();
             let camera = new THREE.PerspectiveCamera(70,16/9,0.1,400);
@@ -118,10 +124,9 @@
             const size = new THREE.Vector2();
             camera.position.set(xPosition,yPosition,4.6);
             
-            
             renderer.getSize(size);
             renderer.setClearColor(0xfff,0);
-            renderer.setSize(defaultWidth / 3, size.height - 20);
+            renderer.setSize(defaultWidth / 3, size.height - 40);
 
             scene.add(dirLight);
             scene.add(ambLight);
@@ -145,12 +150,14 @@
                 },
             );
             
-            
+            div.appendChild(upUIContainer);
             div.appendChild(renderer.domElement);
             div.appendChild(uiConatainer);
             uiConatainer.appendChild(categoryButton);
             uiConatainer.appendChild(downloadButton);
+            upUIContainer.appendChild(infoButton);
             downloadButton.appendChild(downloadImg);
+            infoButton.appendChild(infoIcon);
             container.appendChild(div);
         }
 
