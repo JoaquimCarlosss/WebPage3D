@@ -1,9 +1,8 @@
+@import url(search.css);
+
 /*
     Mobile First Structure
 */ 
-
-@import url(search.css);
-
 *{
     margin: 0;
     list-style: none;
@@ -18,7 +17,7 @@ body{
     background-image: linear-gradient(to bottom,rgb(34, 34, 45),black,rgb(34, 34, 45));
     background-size: cover;
     min-height: 150vh;
-    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-family: "Orbitron", sans-serif; /*Google Font Orbitron*/
     font-weight: 500;
 }
 
@@ -31,22 +30,22 @@ a{
 h2{
     font-size: 1.5em;
 }
-
 /*############### Main NavBar Style For Backg and Space ############################*/
 nav{
     padding: 9px;
-    background-image: radial-gradient(circle, rgb(209, 209, 255,0.3),rgb(68, 95, 95,0.3));
+    background-image: radial-gradient(circle, #d1d1ff4d,#445f5f4d);
 }
 
 /*Nav ul Style For display, align and space*/
 nav ul{
-
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding-bottom: 3px;
 }
-
+.maybeHiddenElement{
+    display: none;
+}
 /*Nav ul li Style For Space*/
 nav ul li{
     margin-right: 1em;
@@ -59,18 +58,16 @@ nav ul li a{
 
 /*NavIcon Style For self transformation Size and Space*/
 .navIcons{
-
-    max-width: 14px;
+    max-width: 20px;
     max-height: auto;
-    margin: 0 0 0 1em;
+    margin: 0 0 0 0 1em;
 } 
 
 /*Menu Button Style For Transform, Backg and Border*/
 .menuButton{
-    transform: scale(0.96);
     background-color: transparent;
     border: 0px transparent;
-    margin: 0;
+    padding: 2px;
 } 
  /*Search Button Style For display*/
 #searchButton
@@ -82,9 +79,17 @@ nav ul li a{
 .Presentation{
     text-align: left;
     margin: 4em 0 0 2.5em;
+    font-size: 12px;
+    font-optical-sizing: auto; /*Auto Optical Sizing*/
+    font-weight: 300; /*Big Font Weight*/
+    display: inline-flex;
 }   
 .Presentation h2{
     font-size: 2.3em;
+}
+.GifContainer
+{
+    display: none;
 }
 /*Popular Link Button style for space, width, text, border, Backg*/
 .PopularLinkButton{
@@ -102,38 +107,64 @@ nav ul li a{
 
 /*####################### Main ############################*/
 .GeneralMain{
-    margin: 3em 0 0 1em;
+    
 }
-.MessageFromCategories h2{
+.GeneralCategoriesDiv{
+    margin: 4em 0 0 0;
+}
+.GeneralMain br{
+    margin: 10em 0 10em 0;
+}
+.GeneralCategoriesDiv
+{
+    margin: 3em 0 0 0em;    
+}
+.MessageFromCategories{
+    width: 100%;
+}
+.MessageFromCategories .TextMessages h1{
+    display: none;
+}
+.MessageFromCategories .TextMessages h2{
     margin: 0 0 0 1em;
+}
+.MessageFromCategories .QuadViewer3D{
+    display: none;
 }
 .ContainerFor3D{
     display: grid; /*To Make a Grid of 3D Viewers*/
     grid-template-columns: repeat(2 , 1fr); /*Seting Number of Columns in Grid*/
     gap: 1em; /*Space Between 3D Viewers*/
+    row-gap: 0.0000024em;
     transform: scale(0.96); 
     max-width: 2600px; /*Max Width for Mobile Devices*/
     height: auto; /*Auto Height*/
+    margin: 0 0 0 2em;
+}
+.RenderContainer{
+    margin: 0 0 0 1.5em;
 }
 /*Viewer 3D For 3D Models*/
 .QuadViewer3D{
-    margin: 0 0 0.1em 0;
+    margin: 0 0 0 0;
     padding: 10px;
-    height: 15vh;
     max-width: 13em;
-    min-height: 26vh;
+    min-height: 30vh;
     border-radius: 10px;
+    transform: scale(1,0.89);
     background-image: radial-gradient(circle,
     rgba(207, 207, 255, 0.575), rgba(1, 30, 31, 0.555)); 
+    
 }   
-
 /*UI Conatainer For Buttons*/
-.UIConatainer{
+.UIContainer{
     padding: 5px;
     z-index: 100;
+    justify-content: center;
+    align-items: center;
 }
 /*UI Container Button Style for backg, border, space, transf, border*/
-.UIConatainer button{
+.UIContainer button{
     background: rgba(0, 0, 0, 0.342);
     border: none;
     padding: 10px;
@@ -145,10 +176,18 @@ nav ul li a{
     font-size: 11px;
     margin-right: 3em;
 }
+.InfoButton{
+    transform: scale(0.8);
+    border: none;
+    margin: 0;
+}
+.InfoButton img{
+    max-width: 15px;
+    max-height: auto;
+}
 /*Download Button style for transform, backg, border, space*/
 .DownloadButton{
     transform: scale(0.8);
-    background-color: transparent;
     border: none;
     margin: 0;
 }
@@ -157,7 +196,6 @@ nav ul li a{
     max-width: 15px;
     max-height: auto;
 }
-
 
 /*Modification for Smallest Digital Devices*/
 @media(max-width: 350px)
@@ -178,17 +216,30 @@ nav ul li a{
         transform: scale(0.9);
     }
 }
-/*#################### Biggest Devices ######################*/
-/*Commun Size Of Tablets Style For .ContainerFor3D elements*/
-@media(max-height: 1080px)
+@media(min-height:700px)
 {
     .QuadViewer3D{
         min-height: 14em;
     }
 }
+/*#################### Biggest Devices ######################*/
+/*Commun Size Of Tablets Style For .ContainerFor3D elements*/
+
 @media(min-width: 500px)
 {
     /*Mofication for container for 3d in number of grids and gap size*/
+    nav ul li{
+        margin-right: 3em;
+    }
+    nav li a {
+        font-size: 16px;
+    }
+    .Presentation{
+        font-size: 16px;
+    }
+    .CategoriesMain{
+        margin: 3em 0 0 2.5em;
+    }
     .ContainerFor3D{
         grid-template-columns: repeat(3,1fr);
         gap: 1em;
@@ -205,6 +256,11 @@ nav ul li a{
 /*Commun Size Of Tablets Style For .ContainerFor3D elements*/
 @media(min-width: 660px)
 {
+    .Presentation{
+        font-size: 25px;
+        z-index: 100;
+        margin: 2em 0 0 2.5em;
+    }
     .ContainerFor3D{
         grid-template-columns: repeat(4,1fr);
     }
@@ -214,30 +270,123 @@ nav ul li a{
     .CategoryButton{
         margin-right: 2em;
     }
+    .PopularLinkButton{
+        padding: 13px;
+        border-radius: 1.4em;
+    }
+    .PopularLinkButton:hover{
+        transform: scale(1.1);
+        box-shadow: 0 0 10px rgb(90, 71, 136);
+        background-image: linear-gradient(to right, #00608d, #984ff8);
+    }
+    #searchButton
+    {
+        display: flex;
+    }
+    .menuButton{
+        margin: 0 0 0 5em;
+    }
 }
 /*Commun Size of */
 @media(min-width: 900px)
 {
+    nav{
+        margin: 2em;
+        padding: 16px;
+        border-radius: 25px;
+        border: 0.3px solid rgb(95, 95, 95);
+    }
+    nav:hover{
+        transform: scale(1.002);
+        box-shadow: 0 20px 20px rgba(73, 73, 73, 0.212);
+    }
+    nav ul{
+        margin: 0 0 0 15em;
+    }
+    
+    /*Container For 3D style for columns, size, Grid Gap*/
     .ContainerFor3D{
         grid-template-columns: repeat(5,1fr);
         max-width: 1100px;
         gap: 1em;
     }
-    .UIConatainer{
+    /*UI Conatainer Modified in Space*/
+    .UIContainer{
         margin: 0 0 0 1em;
     }
     /*in Hover just Transform the Scale*/
     .QuadViewer3D:hover{
-        transform: scale(1.1);
+        transform: scale(1,0.9);
     }
+    .UIContainer button:hover{
+        background-color: rgb(0,0,0,0.5);
+    }
+    nav ul li a:hover{
+        transition: 0.4s;
+        background-color: rgba(32, 30, 30, 0.336);
+        padding: 10px;
+        border-radius: 20px;
+    }
+    
+    
 }
+/*###################### Computer Size ####################*/
 @media(min-width: 1100px)
 {
-    .UIConatainer button{
+    .GeneralMain{
+        margin: 3em 0 0 0em;
+    }
+    .MessageFromCategories{
+        width: 100%;
+        margin: 0 0 0 2em;
+    }
+    .MessageFromCategories .TextMessages{
+        margin: 0 26% 0 1em;
+    }
+    .MessageFromCategories .TextMessages h1{
+        font-size: 40px;
+        display: block;
+    }
+    .MessageFromCategories .TextMessages h2{
+        margin: 0em;
+    }
+    .MessageFromCategories .QuadViewer3D{
+        display: none;
+    }
+    .MessageFromCategories{
+        display: inline-flex;
+    }
+    .MessageFromCategories .QuadViewer3D{ 
+        padding: 20px;
+        display: block;
+        min-width: 30em;
+    }
+    /*UI Conatainer Button style in self transformation*/
+    .UIContainer button{
         transform: scale(1.3);
     }
     .CategoryButton{
         margin-right: 6em;
     }
-    
+    .MessageFromCategories .CategoryButton{ 
+        margin-right: 20em;
+    }
+    .maybeHiddenElement{
+        display: inline-flex;
+    }
+    .navIcons{
+        max-width: 22.4px;
+    }
+    .GifContainer{
+        display: inline-flex;
+        margin: 0 0 0 20em;
+    }
+    .GifContainer img{
+        max-width: 300px;
+        height: auto;
+    }
+    .NavButtons{
+        margin: 0 0 0 6em;
+    }
 }
+
