@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <img class="navIcons" src="datas/icons/imgs/logo.png">
+        <ul>
+            <!--main Page Link-->
+            <li id="navHome"><a href="index.html">Home</a></li>
+            <!--categorie Page Link-->
+            <li id="navCategories"><a href="31205715.html">Categories</a></li>
+            <!--community Page Link-->
+            <li id="navCommunity"><a href="">Community</a></li>
+        </ul>
+        <!-- Search Page Link to open other page to search 3d objects-->
+        <a href="" id="searchButton">
+            <img class="navIcons" src="datas/icons/imgs/search.png" alt="">
+        </a>
+        <!--Menu Button for acess of others options-->
+        <button id="navMenu" class="menuButton"><img class="navIcons" src="datas/icons/imgs/menu.png" alt=""></button>
+    </nav>
+        <!-- Parte para resultado de pesquisa-->
+    <div id="search3Dresult">
+        <menu class="filter">
+            <img src="datas/icons/imgs/filtro.png" alt="" class="imgfiltro" >
+        </menu>
+        <span class="span1">Filtrar Pesquisa</span>
+        <span class="span2">Pesquisa Feita:</span>
+    </div>
+
+    <div class="result">
+        <h2 class="textsearch">Resultado da Pesquisa:</h2>
+    </div>
+
+
+    <main class="GeneralMain" >
+        <section>
+            <div class="ContainerFor3D" id="containerForSearchResult">
+            </div>
+        </section>
+    </main>
+</body>
+
+    <script src="https://unpkg.com/three@0.146.0/build/three.min.js"></script>
+    <script src="https://unpkg.com/three@0.146.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://unpkg.com/three@0.146.0/examples/js/loaders/OBJLoader.js"></script>
+    <script>
+        let objsLi = ["datas/objs/base2.obj","datas/objs/base1.obj","datas/objs/base.obj",
+        "datas/objs/base2.obj","datas/objs/base2.obj","datas/objs/base2.obj","datas/objs/base2.obj",
+        "datas/objs/base2.obj","datas/objs/base2.obj"];
+
+        let xPosition = -1;
+        let yPosition = 0.2;
+
+        for (let index = 0; index < objsLi.length; index++) {
+            
+            let container = document.getElementById("containerForSearchResult");
+            let uiConatainer = document.createElement("div");
+            let div = document.createElement("div");
+            let categoryButton = document.createElement("button");
+            let downloadButton = document.createElement("button");
+            let downloadImg = document.createElement("img");
+            let defaultWidth = 400;
+
+            div.className = "QuadViewer3D";
+            uiConatainer.className = "UIConatainer";
+            categoryButton.className = "CategoryButton";
+            downloadButton.className = "DownloadButton";
+            categoryButton.innerText = "Category";
+            downloadImg.src = "datas/icons/imgs/download.png";
+
+            let scene = new THREE.Scene();
+            let camera = new THREE.PerspectiveCamera(70,16/9,0.1,400);
+            let objLoader = new THREE.OBJLoader();
+            let ambLight = new THREE.AmbientLight(0xfff,0.8);
+            let dirLight = new THREE.DirectionalLight(0xfff,0.8);
+            let renderer = new THREE.WebGLRenderer({
+                antialias: true,
+                alpha: true
+            });
+
+            if(window.innerWidth > 750)
+            {
+                xPosition = -1.7;
+                yPosition = -0.2;
+            }
+
+            const size = new THREE.Vector2();
+            camera.position.set(xPosition,yPosition,4.6);
+            
+            
+            renderer.getSize(size);
+            renderer.setClearColor(0xfff,0);
+            renderer.setSize(defaultWidth / 3, size.height - 20);
+
+            scene.add(dirLight);
+            scene.add(ambLight);
+
+            let obj = null;
+            objLoader.load(
+                objsLi[index],
+                function (object)
+                {
+                    obj = object;
+                    obj.position.set(-0.7,-1,2.3);
+                    obj.scale.set(2,1,1);
+                    obj.rotation.set(0,0,0);    
+                    scene.add(obj);
+                    renderer.render(scene,camera);
+                },
+                undefined,
+                function (error)
+                {
+                    console.error(error);
+                },
+            );
+            
+            
+            div.appendChild(renderer.domElement);
+            div.appendChild(uiConatainer);
+            uiConatainer.appendChild(categoryButton);
+            uiConatainer.appendChild(downloadButton);
+            downloadButton.appendChild(downloadImg);
+            container.appendChild(div);
+        }
+
+    
+    </script>
+</html>
