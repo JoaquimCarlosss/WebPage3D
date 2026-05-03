@@ -1,6 +1,9 @@
 /*
     Mobile First Structure
 */ 
+
+@import url(search.css);
+
 *{
     margin: 0;
     list-style: none;
@@ -15,7 +18,7 @@ body{
     background-image: linear-gradient(to bottom,rgb(34, 34, 45),black,rgb(34, 34, 45));
     background-size: cover;
     min-height: 150vh;
-    font-family: "Orbitron", sans-serif; /*Google Font Orbitron*/
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
     font-weight: 500;
 }
 
@@ -32,19 +35,18 @@ h2{
 /*############### Main NavBar Style For Backg and Space ############################*/
 nav{
     padding: 9px;
-    background-image: radial-gradient(circle, #d1d1ff4d,#445f5f4d);
+    background-image: radial-gradient(circle, rgb(209, 209, 255,0.3),rgb(68, 95, 95,0.3));
 }
 
 /*Nav ul Style For display, align and space*/
 nav ul{
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding-bottom: 3px;
 }
-.maybeHiddenElement{
-    display: none;
-}
+
 /*Nav ul li Style For Space*/
 nav ul li{
     margin-right: 1em;
@@ -57,16 +59,18 @@ nav ul li a{
 
 /*NavIcon Style For self transformation Size and Space*/
 .navIcons{
-    max-width: 20px;
+
+    max-width: 14px;
     max-height: auto;
-    margin: 0 0 0 0 1em;
+    margin: 0 0 0 1em;
 } 
 
 /*Menu Button Style For Transform, Backg and Border*/
 .menuButton{
+    transform: scale(0.96);
     background-color: transparent;
     border: 0px transparent;
-    padding: 2px;
+    margin: 0;
 } 
  /*Search Button Style For display*/
 #searchButton
@@ -78,17 +82,9 @@ nav ul li a{
 .Presentation{
     text-align: left;
     margin: 4em 0 0 2.5em;
-    font-size: 12px;
-    font-optical-sizing: auto; /*Auto Optical Sizing*/
-    font-weight: 300; /*Big Font Weight*/
-    display: inline-flex;
 }   
 .Presentation h2{
     font-size: 2.3em;
-}
-.GifContainer
-{
-    display: none;
 }
 /*Popular Link Button style for space, width, text, border, Backg*/
 .PopularLinkButton{
@@ -105,7 +101,7 @@ nav ul li a{
 }
 
 /*####################### Main ############################*/
-.CategoriesMain{
+.GeneralMain{
     margin: 3em 0 0 1em;
 }
 .MessageFromCategories h2{
@@ -115,32 +111,29 @@ nav ul li a{
     display: grid; /*To Make a Grid of 3D Viewers*/
     grid-template-columns: repeat(2 , 1fr); /*Seting Number of Columns in Grid*/
     gap: 1em; /*Space Between 3D Viewers*/
-    row-gap: 0.0000024em;
     transform: scale(0.96); 
     max-width: 2600px; /*Max Width for Mobile Devices*/
     height: auto; /*Auto Height*/
 }
 /*Viewer 3D For 3D Models*/
 .QuadViewer3D{
-    margin: 0 0 0 0;
+    margin: 0 0 0.1em 0;
     padding: 10px;
+    height: 15vh;
     max-width: 13em;
-    min-height: 30vh;
+    min-height: 26vh;
     border-radius: 10px;
-    transform: scale(1,0.89);
     background-image: radial-gradient(circle,
     rgba(207, 207, 255, 0.575), rgba(1, 30, 31, 0.555)); 
-    
 }   
+
 /*UI Conatainer For Buttons*/
-.UIContainer{
+.UIConatainer{
     padding: 5px;
     z-index: 100;
-    justify-content: center;
-    align-items: center;
 }
 /*UI Container Button Style for backg, border, space, transf, border*/
-.UIContainer button{
+.UIConatainer button{
     background: rgba(0, 0, 0, 0.342);
     border: none;
     padding: 10px;
@@ -152,19 +145,10 @@ nav ul li a{
     font-size: 11px;
     margin-right: 3em;
 }
-.InfoButton{
-
-    transform: scale(0.8);
-    border: none;
-    margin: 0;
-}
-.InfoButton img{
-    max-width: 15px;
-    max-height: auto;
-}
 /*Download Button style for transform, backg, border, space*/
 .DownloadButton{
     transform: scale(0.8);
+    background-color: transparent;
     border: none;
     margin: 0;
 }
@@ -194,30 +178,17 @@ nav ul li a{
         transform: scale(0.9);
     }
 }
-@media(min-height:700px)
+/*#################### Biggest Devices ######################*/
+/*Commun Size Of Tablets Style For .ContainerFor3D elements*/
+@media(max-height: 1080px)
 {
     .QuadViewer3D{
         min-height: 14em;
     }
 }
-/*#################### Biggest Devices ######################*/
-/*Commun Size Of Tablets Style For .ContainerFor3D elements*/
-
 @media(min-width: 500px)
 {
     /*Mofication for container for 3d in number of grids and gap size*/
-    nav ul li{
-        margin-right: 3em;
-    }
-    nav li a {
-        font-size: 16px;
-    }
-    .Presentation{
-        font-size: 16px;
-    }
-    .CategoriesMain{
-        margin: 3em 0 0 2.5em;
-    }
     .ContainerFor3D{
         grid-template-columns: repeat(3,1fr);
         gap: 1em;
@@ -234,11 +205,6 @@ nav ul li a{
 /*Commun Size Of Tablets Style For .ContainerFor3D elements*/
 @media(min-width: 660px)
 {
-    .Presentation{
-        font-size: 25px;
-        z-index: 100;
-        margin: 2em 0 0 2.5em;
-    }
     .ContainerFor3D{
         grid-template-columns: repeat(4,1fr);
     }
@@ -248,40 +214,16 @@ nav ul li a{
     .CategoryButton{
         margin-right: 2em;
     }
-    .PopularLinkButton{
-        padding: 13px;
-        border-radius: 1.4em;
-    }
-    .PopularLinkButton:hover{
-        transform: scale(1.1);
-        box-shadow: 0 0 10px rgb(90, 71, 136);
-        background-image: linear-gradient(to right, #00608d, #984ff8);
-    }
 }
 /*Commun Size of */
 @media(min-width: 900px)
 {
-    nav{
-        margin: 2em;
-        padding: 16px;
-        border-radius: 25px;
-        border: 0.3px solid rgb(95, 95, 95);
-    }
-    nav:hover{
-        transform: scale(1.002);
-        box-shadow: 0 20px 20px rgba(73, 73, 73, 0.212);
-    }
-    nav ul{
-        margin: 0 0 0 15em;
-    }
-    /*Container For 3D style for columns, size, Grid Gap*/
     .ContainerFor3D{
         grid-template-columns: repeat(5,1fr);
         max-width: 1100px;
         gap: 1em;
     }
-    /*UI Conatainer Modified in Space*/
-    .UIContainer{
+    .UIConatainer{
         margin: 0 0 0 1em;
     }
     /*in Hover just Transform the Scale*/
@@ -289,32 +231,13 @@ nav ul li a{
         transform: scale(1.1);
     }
 }
-/*###################### Computer Size ####################*/
 @media(min-width: 1100px)
 {
-    /*UI Conatainer Button style in self transformation*/
-    .UIContainer button{
+    .UIConatainer button{
         transform: scale(1.3);
     }
     .CategoryButton{
         margin-right: 6em;
     }
-    #navMenu{
-        display: none;
-    }
-    .maybeHiddenElement{
-        display: inline-flex;
-    }
-    .navIcons{
-        max-width: 22.4px;
-    }
-    .GifContainer{
-        display: inline-flex;
-        margin: 0 0 0 20em;
-    }
-    .GifContainer img{
-        max-width: 300px;
-        height: auto;
-    }
+    
 }
-
