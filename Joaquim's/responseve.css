@@ -1,0 +1,204 @@
+@media(max-width: 350px){
+
+  #search3Dresult {
+  
+    padding: 5px;
+    
+    margin-top: 10px;
+    display: flex;
+    
+    
+    background-image: radial-gradient(circle, rgb(209, 209, 255,0.3),rgb(68, 95, 95,0.3));
+
+  }
+
+  #imgfiltro {
+
+    margin-left: -40px;
+    width: 40px;
+    height: auto;
+  }
+  
+  .span1 {
+    margin-top: 10px;
+    margin-left: -30px;
+    font-size: medium;
+  
+  }
+
+  .span2 {
+  
+    color: rgb(14, 209, 235);
+    font-size: large;
+    right: 25px;
+    margin-top: 10px;
+    margin-right: -10px;
+
+}
+ 
+}
+
+@media (min-width: 360px) and (max-width: 490px){
+
+  #search3Dresult {
+
+    margin-top: 20px;
+  
+    padding: 0;
+
+  }
+
+  #imgfiltro {
+
+    margin-left: -40px;
+    width: 49px;
+    height: auto;
+
+  }
+
+  .span1 {
+
+    margin-top: 13px;
+    margin-left: -30px;
+    font-size: 16px;
+  
+  }
+
+   .span2 {
+  
+    color: rgb(14, 209, 235);
+    font-size: large;
+    right: 25px;
+    margin-top: 10px;
+    margin-right: -10px;
+
+}
+
+}
+
+@media(min-width: 500px) {
+   #search3Dresult {
+  
+    padding: 0;
+
+    border-radius: 30px;
+    margin: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+    
+    margin-top: 20px;
+    display: flex;
+    
+    
+    background-image: radial-gradient(circle, rgb(209, 209, 255,0.3),rgb(68, 95, 95,0.3));
+
+  }
+
+  #imgfiltro {
+
+    margin-left: -20px;
+    width: 40px;
+    height: auto;
+  }
+
+  .span1 {
+    margin-top: 10px;
+    margin-left: -3px;
+    font-size: large;
+  
+  }
+
+  .span2 {
+  
+    color: rgb(14, 209, 235);
+    font-size: large;
+    
+    margin-top: 10px;
+    margin-right: 25px;
+
+  }
+
+  .result {
+
+    display: flex;
+
+    .textsearch {
+
+      display: inline-block;
+      margin-top: 50px;
+      margin-left: 1.9rem;
+      font-size: 25px;
+      
+      margin-bottom: 0.5px;
+    }
+  
+  }
+
+}
+
+
+
+@media(min-width: 660px) {
+
+  #search3Dresult {
+  
+    padding: 0;
+    margin-top: 20px;
+    display: flex;
+    
+    
+    background-image: radial-gradient(circle, rgb(209, 209, 255,0.3),rgb(68, 95, 95,0.3));
+
+  }
+  
+  #imgfiltro {
+
+    margin-left: -1px;
+    width: 40px;
+    height: auto;
+  }
+
+  .span1 {
+    margin-top: 10px;
+    margin-left: 30px;
+    font-size: large;
+  
+  }
+
+  .span2 {
+  
+    color: rgb(14, 209, 235);
+    font-size: large;
+    
+    margin-top: 10px;
+    margin-right: 95px;
+
+}
+
+}
+
+@media(min-width: 900px) {
+  .span2 {
+  
+    color: rgb(14, 209, 235);
+    font-size: large;
+    
+    margin-top: 10px;
+    margin-right: 200px;
+
+}
+
+}
+
+@media(min-width: 1100px) {
+  .span2 {
+  
+    color: rgb(14, 209, 235);
+    font-size: large;
+    
+    margin-top: 10px;
+    margin-right: 300px;
+
+}
+
+}
